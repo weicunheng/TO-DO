@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TODO</title>
+    <script src='/static/js/jquery.js'></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <script src='/static/js/todo.js'></script>
+    <link rel='stylesheet' href='/static/css/todo.css'>
+</head>
+
+<body>
+<div class='container'>
+    <h1 class='charcoal rounded-box'>ToDo</h1>
+
+    <h2>Tasks</h2>
+
+    <ul class='grey rounded-box'>
+        <li>
+            <span class='checkbox'></span>
+{{/*            {{t.Title}}*/}}
+        </li>
+    </ul>
+    <form action="/task/" method="post">
+        <input type='text' name="taskName" class='rounded-box' placeholder='add new todo here'>
+        <input type="submit" class='grey rounded-box' value="添加一条任务">
+    </form>
+
+    <button id="newTask">创建一条任务</button>
+
+
+
+    <img class='spinner' src='/static/img/spinner.gif' alt='Loading'/>
+</div>
+</body>
+<script type="application/javascript">
+    function click() {
+        console.log("1");
+    }
+</script>
+</html>

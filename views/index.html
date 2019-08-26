@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='../static/css/todo.css'>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript">
+        $(function () {
+            $("#newTask").click(function () {
+                var val = $("#taskTitle").val();
+                var dict = {"taskName":val};
+                $.ajax({
+                    type:"POST",
+                    contentType: "application/json;charset=UTF-8",
+                    //请求地址
+                    url : "http://localhost:8080/task/",
+                    //数据，json字符串
+                    data : JSON.stringify(dict),
+                    //请求成功
+                    success : function(result) {
+                        console.log(result);
+                    },
+                    //请求失败，包含具体的错误信息
+                    error : function(e){
+                        console.log(e.status);
+                        console.log(e.responseText);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="containerTOP">
+        <span>TODO</span>
+    </div>
+    <div class="containerContent">
+        {{ .task.id }}
+        <ul class='grey rounded-box'>
+            <li>
+                <input type="radio" > Python
+            </li>
+            <li>
+                <input type="radio" > Python
+            </li>
+        </ul>
+    </div>
+    <div class="containerFloor">
+
+        <input type="text" placeholder="输入任务名" id="taskTitle">
+        <button id="newTask">添加一个任务</button>
+
+    </div>
+</div>
+</body>
+
+</html>
